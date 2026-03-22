@@ -8,13 +8,12 @@
 #include <chrono>
 #include "TimedDoor.h"
 
-using namespace testing;
 using ::testing::Return;
 using ::testing::_;
 // ================= MOCK =================
 
 class MockDoor : public Door {
-public:
+ public:
   MOCK_METHOD(void, lock, (), (override));
   MOCK_METHOD(void, unlock, (), (override));
   MOCK_METHOD(bool, isDoorOpened, (), (override));
@@ -28,7 +27,7 @@ class MockTimerClient : public TimerClient {
 // ================= TEST FIXTURE =================
 
 class TimedDoorInterfaceTest : public ::testing::Test {
-protected:
+ protected:
   MockDoor mockDoor;
 };
 
